@@ -1,0 +1,107 @@
+---
+// Download section - OS-specific download buttons
+const version = '1.0.0';
+
+const platforms = [
+  {
+    name: 'macOS',
+    icon: 'apple',
+    file: `Ora-Automation-${version}.dmg`,
+    arch: 'Apple Silicon & Intel',
+  },
+  {
+    name: 'Windows',
+    icon: 'windows',
+    file: `Ora-Automation-${version}.msi`,
+    arch: '64-bit',
+  },
+  {
+    name: 'Linux',
+    icon: 'linux',
+    file: `Ora-Automation-${version}.AppImage`,
+    arch: 'x86_64',
+  },
+];
+---
+
+<section id="download" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Download Ora Automation
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Get started with our free desktop app. Available for all major platforms.
+      </p>
+      <p class="mt-2 text-sm text-gray-500">
+        Current version: <span class="font-mono font-semibold text-primary-600">v{version}</span>
+      </p>
+    </div>
+
+    <!-- Download cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      {platforms.map((platform) => (
+        <a
+          href={`https://github.com/wollenslab/ora-automation/releases/download/v${version}/${platform.file}`}
+          class="group relative p-6 rounded-2xl bg-white border-2 border-gray-200 transition-all duration-300 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-1"
+        >
+          <div class="flex flex-col items-center text-center">
+            <!-- Platform icon -->
+            <div class="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-4 group-hover:bg-primary-50 transition-colors">
+              {platform.icon === 'apple' && (
+                <svg class="w-8 h-8 text-gray-700 group-hover:text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+              )}
+              {platform.icon === 'windows' && (
+                <svg class="w-8 h-8 text-gray-700 group-hover:text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 12V6.75l6-1.32v6.48L3 12m17-9v8.75l-10 .15V5.21L20 3M3 13l6 .09v6.81l-6-1.15V13m17 .25V22l-10-1.91V13.1l10 .15z"/>
+                </svg>
+              )}
+              {platform.icon === 'linux' && (
+                <svg class="w-8 h-8 text-gray-700 group-hover:text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.504 0c-.155 0-.311.001-.465.003-.653.014-1.298.106-1.897.322-.556.199-1.064.488-1.495.87a4.65 4.65 0 0 0-1.09 1.415 5.22 5.22 0 0 0-.618 2.056c-.059.476-.087.956-.087 1.436 0 .793.065 1.583.193 2.362.062.375.13.75.206 1.122.089.435.19.867.302 1.293.124.469.257.933.409 1.39.144.432.3.858.465 1.276.178.45.365.893.563 1.326.206.45.421.892.647 1.324.23.44.467.872.718 1.294.285.481.581.949.893 1.4.307.443.624.872.95 1.285.313.397.634.78.959 1.147.319.361.643.706.972 1.036.32.32.648.625.984.91a13.032 13.032 0 0 0 2.153 1.548c.384.216.773.407 1.167.571a9.8 9.8 0 0 0 1.25.405c.425.103.858.175 1.293.214.396.036.798.05 1.199.044.388-.006.777-.027 1.163-.065a10.168 10.168 0 0 0 2.297-.542 9.376 9.376 0 0 0 2.011-1.002c.643-.406 1.247-.875 1.797-1.411a9.888 9.888 0 0 0 1.493-1.893c.407-.601.762-1.24 1.058-1.913a12.24 12.24 0 0 0 .744-2.057c.17-.623.299-1.256.389-1.896.085-.607.138-1.22.156-1.834.019-.609.002-1.22-.049-1.827a11.88 11.88 0 0 0-.249-1.76 9.54 9.54 0 0 0-.494-1.648 7.78 7.78 0 0 0-.775-1.474 6.68 6.68 0 0 0-1.076-1.246 5.78 5.78 0 0 0-1.371-.96 5.41 5.41 0 0 0-1.609-.56A6.43 6.43 0 0 0 12.504 0zm-.32.89c.509 0 1.01.047 1.5.14.456.088.898.223 1.317.41.384.171.748.387 1.08.654.306.245.586.526.832.84.227.29.421.605.576.945.142.31.249.64.32.98.065.315.1.636.104.96.003.266-.014.53-.054.793a6.02 6.02 0 0 1-.216.896 7.48 7.48 0 0 1-.373.912c-.163.34-.352.667-.566.975-.198.285-.413.556-.644.812-.247.273-.507.532-.784.772-.263.228-.537.44-.825.632-.265.177-.54.339-.824.482-.283.143-.572.27-.87.379a8.16 8.16 0 0 1-1.854.457c-.31.037-.621.054-.934.052-.313-.002-.626-.02-.937-.056a7.39 7.39 0 0 1-.923-.16 6.41 6.41 0 0 1-.88-.28 5.65 5.65 0 0 1-.834-.42 5.27 5.27 0 0 1-.764-.563 5.3 5.3 0 0 1-.68-.71 5.69 5.69 0 0 1-.55-.846 6.3 6.3 0 0 1-.398-.958 7.1 7.1 0 0 1-.232-1.028 7.9 7.9 0 0 1-.06-1.046c.004-.363.04-.725.108-1.082.076-.395.185-.781.33-1.153.16-.408.355-.8.59-1.168.26-.408.56-.787.9-1.126.374-.37.792-.689 1.246-.946.503-.283 1.04-.491 1.598-.618.518-.118 1.05-.174 1.583-.17z"/>
+                </svg>
+              )}
+            </div>
+
+            <!-- Platform name -->
+            <h3 class="text-xl font-semibold text-gray-900 mb-1">{platform.name}</h3>
+            <p class="text-sm text-gray-500 mb-4">{platform.arch}</p>
+
+            <!-- Download button -->
+            <div class="flex items-center text-primary-600 font-medium group-hover:text-primary-700">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download
+            </div>
+          </div>
+
+          <!-- Coming soon overlay (remove when downloads are ready) -->
+          <div class="absolute inset-0 bg-white/90 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-0 transition-opacity">
+            <span class="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 font-medium">
+              Coming Soon
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Requirements note -->
+    <div class="mt-12 text-center">
+      <p class="text-sm text-gray-500">
+        Requires an internet connection. Connects to cloud backend for AI processing.
+      </p>
+      <p class="mt-2 text-sm text-gray-500">
+        <a href="https://github.com/wollenslab/ora-automation/releases" target="_blank" rel="noopener" class="text-primary-600 hover:text-primary-700 underline">
+          View all releases
+        </a>
+        {' · '}
+        <a href="/docs/quickstart" class="text-primary-600 hover:text-primary-700 underline">
+          Quick start guide
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
